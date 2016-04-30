@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+
+        <div class="container">
+            <table>
+                <tr>
+
+                    <c:forEach items="#{parquederoControlador.miParqueadero}" var="parq">
+                        <td class="autos"> 
+                            
+                            <h:form>  
+                                <h:commandButton  value="#{parq.numeroParqueadero}" action="#{parquederoControlador.colocar(parq.numeroParqueadero)}" >
+                                </h:commandButton>
+                            </h:form>    
+
+                            Placa : #{parq.placa} <br/>
+                            Hora Entrada : #{parq.horaEntrada} <br/>
+                            Minuto Entrada : #{parq.minEntrtada} <br/>
+                        </td>
+                    </c:forEach>
+
+                </tr>
+
+            </table>
+
+            <div>
+                <table border="1"> 
+
+                    <tr>
+                        <td> <h3> Tipo </h3>  </td>
+                        <td> <h3> Carro </h3>  </td>
+                        <td> <h3> Moto </h3>  </td>
+                        <td> <h3> Bicicleta </h3>  </td>
+
+                    </tr>
+
+                    <tr>
+                        <td> <h3> Valor </h3>  </td>
+                        <td> <h3> #{parquederoControlador.valorMinAuto} </h3>  </td>
+                        <td> <h3> #{parquederoControlador.valorMinMoto} </h3>  </td>
+                        <td> <h3> #{parquederoControlador.valorMinBici} </h3>  </td>
+
+                    </tr>
+
+                    <tr>
+                        <td> <h3> Tarifa Completa </h3>  </td>
+                        <td> <h3> #{parquederoControlador.tarifaCompletaAuto} </h3>  </td>
+                        <td> <h3> #{parquederoControlador.tarifaCompletaMoto} </h3>  </td>
+                        <td> <h3> #{parquederoControlador.tarifaCompletaBici} </h3>  </td>
+
+                    </tr>
+
+
+
+
+                </table>
+
+
+                <c:forEach items="#{parquederoControlador.miParqueadero}" var="parq">
+                    Numero Parquedero : #{parq.numeroParqueadero} <br/>
+                    Valor Venta : #{parq.acumulado} <br/> <hr/>
+
+                </c:forEach>
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+    </h:body>
+</html>
+
